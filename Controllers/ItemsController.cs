@@ -16,12 +16,14 @@ namespace CafeInventoryApi.Controllers
             _db = db;
         }
 
+        // api/items
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _db.Items.ToListAsync());
         }
 
+        // api/items/id
         [HttpGet("{id}")]
         public async Task<IActionResult> GetItem(int id)
         {
@@ -31,6 +33,7 @@ namespace CafeInventoryApi.Controllers
             return Ok(item);
         }
 
+        // api/items
         [HttpPost]
         public async Task<IActionResult> Create(Item item)
         {
@@ -39,6 +42,7 @@ namespace CafeInventoryApi.Controllers
             return Ok(item);
         }
 
+        // api/items/id
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Item updatedItem)
         {
@@ -49,6 +53,7 @@ namespace CafeInventoryApi.Controllers
             item.Category = updatedItem.Category;
             item.Quantity = updatedItem.Quantity;
             item.Price = updatedItem.Price;
+            item.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
             await _db.SaveChangesAsync();
 

@@ -8,6 +8,7 @@ namespace CafeInventoryApi.Models
         public string Category {get; set;} = "";
         public int Quantity {get; set;}
         public decimal Price {get; set;}
-        public DateTime CreatedAt {get; set;} = DateTime.UtcNow;
+        public long CreatedAt {get; set;} = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        public long? UpdatedAt {get; set;} = null;
     }
 }
