@@ -53,7 +53,7 @@ namespace CafeInventoryApi.Controllers
             item.Category = updatedItem.Category;
             item.Quantity = updatedItem.Quantity;
             item.Price = updatedItem.Price;
-            item.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            item.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync();
 
