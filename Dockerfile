@@ -1,5 +1,5 @@
 # 1. Use the official .NET SDK image for building
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
 
 # 2. Copy csproj and restore dependencies
